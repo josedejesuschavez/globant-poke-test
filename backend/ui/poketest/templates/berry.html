@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+{{ berry.name | capitalize }}
+{% endblock %}
+
 {% block content %}
 <div class="card">
     <div class="card-body">
@@ -23,11 +27,11 @@
                                 {% if  property_child[property_child_key].__class__.__name__ == 'dict' %}
                                 {% for property_child_key_child in property_child[property_child_key].keys() %}
                                 <h5 style="display: inline;" class="card-subtitle mb-2 text-body-secondary">{{ property_child_key_child | capitalize}}:</h5>
-                                {{ property_child[property_child_key][property_child_key_child] | urlize(40, True, '_blank') }}
+                                {{ property_child[property_child_key][property_child_key_child] | urlize(400, True, '_blank') }}
                                 {% endfor %}
                                 {% else %}
                                 <h5 style="display: inline;" class="card-subtitle mb-2 text-body-secondary">{{ property_child_key | capitalize}}:</h5>
-                                {{ property_child[property_child_key] | urlize(40, True, '_blank') }}
+                                {{ property_child[property_child_key] | urlize(400, True, '_blank') }}
                                 {% endif %}
                                 {% endfor %}
                             </li>
@@ -35,10 +39,10 @@
                         </ul>
                     {% elif  berry[property_name].__class__.__name__ == 'dict' %}
                         {% for property_child in berry[property_name].keys() %}
-                            <h5 class="card-subtitle mb-2 text-body-secondary">{{ property_child | capitalize }}: {{ berry[property_name][property_child] | urlize(40, True, '_blank') }}</h5>
+                            <h5 class="card-subtitle mb-2 text-body-secondary">{{ property_child | capitalize }}: {{ berry[property_name][property_child] | urlize(400, True, '_blank') }}</h5>
                         {% endfor %}
                     {% else %}
-                        <p>{{ berry[property_name] | capitalize | urlize(40, True, '_blank') }}</p>
+                        <p>{{ berry[property_name] | capitalize | urlize(400, True, '_blank') }}</p>
                     {% endif %}
                     </div>
                 </div>
@@ -47,4 +51,4 @@
         </div>
     </div>
 </div>
-{% endblock content %}
+{% endblock %}
