@@ -1,14 +1,14 @@
 import statistics
 
-from flask import Blueprint, render_template
-from backend.berry.infraestructure.pokeapi_repository import PokeAPIRepository
+from flask import Blueprint
+
 from backend.ui.poketest.cache import cache
 from backend.ui.poketest.rest.berry.get.get_all import get_all_data
 from backend.ui.poketest.rest.berry.get.get_by_id import get_by_id_data
 
 blueprint = Blueprint('get_all_berry_stats', __name__)
 
-@blueprint.route('/get-all-berry-stats', methods=['GET'])
+@blueprint.route('/allBerryStats', methods=['GET'])
 @cache.cached(timeout=120)
 def get_all_berry_stats():
     berries = get_all_data()

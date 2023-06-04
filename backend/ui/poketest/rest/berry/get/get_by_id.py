@@ -4,7 +4,7 @@ from backend.ui.poketest.cache import cache
 
 blueprint = Blueprint('get_by_id_berry', __name__)
 
-#@cache.cached(timeout=120)
+@cache.memoize(timeout=120)
 def get_by_id_data(berry_id: int):
     repository = PokeAPIRepository()
     berry = repository.get_by_id(id=berry_id)

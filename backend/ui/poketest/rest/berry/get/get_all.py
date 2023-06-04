@@ -4,7 +4,7 @@ from backend.ui.poketest.cache import cache
 
 blueprint = Blueprint('get_all_berries', __name__)
 
-@cache.cached(timeout=120)
+@cache.memoize(timeout=120)
 def get_all_data():
     repository = PokeAPIRepository()
     berries = repository.get_all()
@@ -13,7 +13,6 @@ def get_all_data():
     return berries
 
 @blueprint.route('/get-all', methods=['GET'])
-#@cache.cached(timeout=120)
 def get_all():
     berries = get_all_data()
     return render_template('all_berries.html', berries = berries)
