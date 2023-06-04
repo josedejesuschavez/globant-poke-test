@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+    {% for group in berries|batch(3, '') %}
+    <div class="row">
+        {% for berry in group %}
+        {% if berry != '' %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="{{ berry.url }}">
+                        <h5 class="card-title">{{ berry.name.upper() }}</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
