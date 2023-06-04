@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-body-secondary">Berries names:</h6>
+        <p class="card-text">{{ data['berries_names'] }}</p>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Min growth time:</h6>
+        <p class="card-text">{{ data['min_growth_time'] }}</p>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Max growth time:</h6>
+        <p class="card-text">{{ data['max_growth_time'] }}</p>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Median growth time:</h6>
+        <p class="card-text">{{ data['median_growth_time'] }}</p>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Variance growth time:</h6>
+        <p class="card-text">{{ data['variance_growth_time'] }}</p>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Mean growth time:</h6>
+        <p class="card-text">{{ data['mean_growth_time'] }}</p>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Frequency growth time:</h6>
+        <p class="card-text">{{ data['frequency_growth_time'] }}</p>
+        {{ plot|safe }}
+    </div>
+</div>
+{% endblock %}
