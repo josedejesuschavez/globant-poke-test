@@ -10,7 +10,6 @@
         <h3 class="card-title">{{ berry.name.upper() }}</h3>
         <div class="accordion" id="accordionPokemon">
             {% for property_name in berry.keys() %}
-
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{property_name}}" aria-expanded="true" aria-controls="collapse{{property_name}}">

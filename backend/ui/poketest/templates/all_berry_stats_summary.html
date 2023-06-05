@@ -17,7 +17,7 @@
         <p class="card-text">{{ data['mean_growth_time'] }}</p>
         <h6 class="card-subtitle mb-2 text-body-secondary">Frequency growth time:</h6>
         <p class="card-text">{{ data['frequency_growth_time'] }}</p>
-        {{ plot|safe }}
+        {{ chart|safe }}
     </div>
 </div>
 {% endblock %}

@@ -1,9 +1,8 @@
 from flask import Flask
-from backend.ui.poketest.cache import cache
+
+from backend.shared.infraestructure.cache import cache
 from backend.ui.poketest.register_modules_blueprint import RegisterModulesBlueprint
 from backend.ui.poketest.rest.berry.register_blueprint import BerryRegisterBlueprint
-from jinja2 import Environment
-
 
 def isinstance_filter(obj, type):
     return isinstance(obj, type)

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from backend.berry.infraestructure.pokeapi_repository import PokeAPIRepository
-from backend.ui.poketest.cache import cache
+from backend.shared.infraestructure.cache import cache
 
 blueprint = Blueprint('get_all_berries', __name__)
 
@@ -13,6 +13,7 @@ def get_all_data():
     return berries
 
 @blueprint.route('/get-all', methods=['GET'])
+@cache.cached(timeout=120)
 def get_all():
     berries = get_all_data()
     return render_template('all_berries.html', berries = berries)
