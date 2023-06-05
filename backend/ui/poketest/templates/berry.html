@@ -5,49 +5,23 @@
 {% endblock %}
 
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h3 class="card-title">{{ berry.name.upper() }}</h3>
-        <div class="accordion" id="accordionPokemon">
-            {% for property_name in berry.keys() %}
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{property_name}}" aria-expanded="true" aria-controls="collapse{{property_name}}">
-                        <h5 class="card-subtitle mb-2 text-body-secondary">{{ property_name | capitalize | replace("_", " ") }}</h5>
-                    </button>
-                </h2>
-                <div id="collapse{{property_name}}" class="accordion-collapse collapse show" data-bs-parent="#accordionPokemon">
-                    <div class="accordion-body">
-                        {% if berry[property_name].__class__.__name__ == 'list' %}
-                        <ul>
-                            {% for property_child in berry[property_name] %}
-                            <li>
-                                {% for property_child_key in property_child.keys() %}
-                                {% if  property_child[property_child_key].__class__.__name__ == 'dict' %}
-                                {% for property_child_key_child in property_child[property_child_key].keys() %}
-                                <h5 style="display: inline;" class="card-subtitle mb-2 text-body-secondary">{{ property_child_key_child | capitalize}}:</h5>
-                                {{ property_child[property_child_key][property_child_key_child] | urlize(400, True, '_blank') }}
-                                {% endfor %}
-                                {% else %}
-                                <h5 style="display: inline;" class="card-subtitle mb-2 text-body-secondary">{{ property_child_key | capitalize}}:</h5>
-                                {{ property_child[property_child_key] | urlize(400, True, '_blank') }}
-                                {% endif %}
-                                {% endfor %}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    {% elif  berry[property_name].__class__.__name__ == 'dict' %}
-                        {% for property_child in berry[property_name].keys() %}
-                            <h5 class="card-subtitle mb-2 text-body-secondary">{{ property_child | capitalize }}: {{ berry[property_name][property_child] | urlize(400, True, '_blank') }}</h5>
-                        {% endfor %}
-                    {% else %}
-                        <p>{{ berry[property_name] | capitalize | urlize(400, True, '_blank') }}</p>
-                    {% endif %}
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        </div>
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        {{ berry.name.upper() }}
     </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ 'growth time' | capitalize }}: {{ berry.growth_time }}</li>
+        <li class="list-group-item">{{ 'natural gift power' | capitalize }}: {{ berry.natural_gift_power }}</li>
+        <li class="list-group-item">{{ 'size' | capitalize }}: {{ berry.size }}</li>
+        <li class="list-group-item">{{ 'smoothness' | capitalize }}: {{ berry.smoothness }}</li>
+        <li class="list-group-item">{{ 'soil dryness' | capitalize }}: {{ berry.soil_dryness }}</li>
+        <li class="list-group-item">{{ 'max harvest' | capitalize }}: {{ berry.max_harvest }}</li>
+        <li class="list-group-item">{{ 'firmness' | capitalize }}: {{ berry.firmness.name }}</li>
+        <li class="list-group-item">{{ 'flavors' | capitalize }}:
+            {% for flavor in berry.flavors %}
+            {{ flavor.flavor.name }}
+            {% endfor %}
+        </li>
+    </ul>
 </div>
 {% endblock %}
