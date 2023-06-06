@@ -5,7 +5,7 @@ from backend.shared.domain.repository import Repository
 
 class FakeRepository(Repository):
     def get_by_id(self, id: int):
-        result = data = {
+        result = {
             "firmness": {
                 "name": "soft",
                 "url": "https://pokeapi.co/api/v2/berry-firmness/2/"
@@ -62,10 +62,14 @@ class FakeRepository(Repository):
             },
             "size": 20,
             "smoothness": 25,
-            "soil_dryness": 15
+            "soil_dryness": 15,
         }
         return result
 
     def get_all(self):
-        result = '{ "results": [{"name": "cheri", "url": "https://pokeapi.co/api/v2/berry/1/"}, {"name": "chesto", "url": "https://pokeapi.co/api/v2/berry/2/"}]}'
-        return json.loads(result)
+        result = {
+            "results": [
+                {"name": "cheri", "url": "https://pokeapi.co/api/v2/berry/1/"},
+                {"name": "chesto", "url": "https://pokeapi.co/api/v2/berry/2/"}
+            ]}
+        return result
