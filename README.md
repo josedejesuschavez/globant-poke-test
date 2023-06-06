@@ -1,4 +1,4 @@
-# globant-poke-test
+# Globant Test
 
 ## Run code
 Simple Up project
