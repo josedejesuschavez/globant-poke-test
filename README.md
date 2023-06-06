@@ -12,3 +12,6 @@ Up with build container
 Up project in mode debug for put breakpoint
 
 `make up-with-debug-mode`
+
+
+## Valid routes
