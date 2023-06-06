@@ -9,7 +9,6 @@ from backend.berry.application.services.get_all_berry_stats_usecase import GetAl
 from backend.berry.infraestructure.matplotlib_visualization import MatplotlibVisualization
 from backend.berry.infraestructure.pokeapi_repository import PokeAPIRepository
 from backend.shared.infraestructure.cache import cache
-from backend.ui.poketest.rest.berry.get.get_all import get_all_data
 
 
 blueprint = Blueprint('get_all_berry_stats', __name__)

@@ -8,6 +8,7 @@ class PokeAPIRepository(Repository):
     def __init__(self):
         pass
 
+    @cache.memoize(timeout=120)
     def get_all(self):
         url = "https://pokeapi.co/api/v2/berry/?offset=0&limit=1000"
         response = requests.get(url)
