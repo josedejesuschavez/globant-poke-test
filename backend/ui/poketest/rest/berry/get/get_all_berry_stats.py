@@ -1,8 +1,4 @@
-import base64
-import io
-import statistics
-from flask import Blueprint, render_template, json
-import matplotlib.pyplot as plt
+from flask import Blueprint, render_template, jsonify
 
 from backend.berry.application.services.get_all_berry_stats_summary_usecase import GetAllBerryStatsSummaryUseCase
 from backend.berry.application.services.get_all_berry_stats_usecase import GetAllBerryStatsUseCase
@@ -18,7 +14,7 @@ blueprint = Blueprint('get_all_berry_stats', __name__)
 def get_all_berry_stats():
     use_case = GetAllBerryStatsUseCase(repository=PokeAPIRepository())
     result = use_case.execute()
-    return json.dumps(result)
+    return jsonify(result)
 
 
 @blueprint.route('/allBerryStatsSummary', methods=['GET'])
